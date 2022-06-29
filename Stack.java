@@ -1,5 +1,6 @@
+import Interface.StackInterface;
 
-public class Stack {
+public class Stack implements StackInterface{
 
     /* 
     Stack is LIFO structure. Element that comes in last goes out first.
@@ -31,7 +32,9 @@ public class Stack {
     };
 
 
-    void addElement(String s){
+    // adds element to the stack. places the element on top of the stack.
+    @Override
+    public void addElement(String s){
 
         /*
          Special case: stack has no element. New stack element added as the first element on the stack. 
@@ -58,7 +61,8 @@ public class Stack {
     
 
     // removes the stack element that was added last and returns it
-    String removeFirstElement(){
+    @Override
+    public String removeFirstElement(){
 
         // If stack is already empty, then hint is returned that stack is null.
         if (this.firstElement == null){
@@ -81,7 +85,8 @@ public class Stack {
     
     
     // Return the top value of the stack without removing it.
-    String getFirstElement(){
+    @Override
+    public String getFirstElement(){
 
         if (this.firstElement == null){
             return null;
@@ -93,15 +98,16 @@ public class Stack {
 
 
     // Returns the "height" of the stack, i.e. the number of stored values.
-    long getSize(){
+    @Override
+    public long getSize(){
         return this.sizeCounter;
     };                       
     
 
-    /*
-    If the first element is null, then the stack is empty, accordingly false is returned. Otherwise true.
-    */
-    boolean isEmpty(){
+    
+    // If the first element is null, then the stack is empty, accordingly false is returned. Otherwise true.
+    @Override
+    public boolean isEmpty(){
         return (this.firstElement == null);
     };
 
